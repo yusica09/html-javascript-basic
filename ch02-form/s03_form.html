@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <form action="signup.html" method="post">
+        <fieldset>
+            <legend>새 계정을 만듭니다.</legend>
+            <ul>
+                <li>
+                    <label for="name">이름</label>
+                    <!-- placeholder : 힌트기능 -->
+                    <!-- autocomplete : 자동완성제어 -->
+                    <input type="text" name="name" id="name"
+                        autofocus placeholder="이름 입력"
+                        autocomplete="off">
+                </li>
+                <li>
+                    <label for="id">아이디</label>
+                    <input type="text" name="id" id="id"
+                        placeholder="아이디 입력" autocomplete="off">
+                </li>
+                <li>
+                    <label for="job">직업</label>
+                    <input type="text" name="job" list="job">
+                    <datalist id="job">
+                        <option value="학생"></option>
+                        <option value="의사"></option>
+                        <option value="변호사"></option>
+                        <option value="프로그래머"></option>
+                    </datalist>
+                </li>
+                <li>
+                    <input type="submit" value="전송">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>
