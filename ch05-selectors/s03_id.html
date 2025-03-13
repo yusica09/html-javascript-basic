@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 선택자</title>
+    <!--
+    아이디가 중복돼서 오류가 날 수 있음. 주의하기
+    예를들어 for 문을 돌리거나할때 아이디를 계속 중복으로 이용하면 오류남
+    -->
+    <style type="text/css">
+        /*아이디 선택자는 문서에서 한번만 적용*/
+        #layout_ft {
+            font-size: 30pt;
+            color: blue;
+            background-color: yellow;
+        }
+        #layout_sp{
+            font-size: 25pt;
+            color: red;
+            background-color: pink;
+        }
+        #layout_dv{
+            font-size: 15pt;
+            color: white;
+            background-color: black;
+        }
+        #layout_dm{
+            font-size: 35pt;
+            color: white;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="layout_ft">오늘은 수요일</div>
+    <br>
+    <span id="layout_sp">여기는 서울</span>
+    <br>
+    <p id="layout_dv">내일은 목요일</p>
+    <br>
+    <span id="layout_dm">저기는 부산</span>
+</body>
+</html>
