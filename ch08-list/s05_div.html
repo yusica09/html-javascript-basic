@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div</title>
+    <style type="text/css">
+        div{
+            width:500px;
+            height: 100px;
+            border: 1px solid orange;
+        }
+        div.a{
+            text-align: center;/*가로 정렬*/
+            vertical-align: middle;/*세로 정렬*/
+            /*div 공간을 테이블의 셀 공간으로 지정해서
+            vertical-align이 적용되도록 처리*/
+            display: table-cell;
+        }
+        div.b{
+            display: flex;
+            justify-content: center;/*가로 정렬*/
+            align-items:center;/*세로 정렬*/
+        }
+    </style>
+</head>
+<body>
+    <div class="a"><span>하하</span></div>
+    <br>
+    <div class="b"><span>호호</span></div>
+</body>
+</html>
