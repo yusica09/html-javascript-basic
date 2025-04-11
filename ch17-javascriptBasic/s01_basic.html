@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실행 위치</title>
+    <script type="text/javascript">
+        /*
+        웹 브라우저는 head 태그를 먼저 읽은 후 body 태그를
+        읽으므로 script 태그를 head 태그에 넣으면 body 태그를
+        읽기 전에 실행. 반대로 body 태그에 넣으면 head를 실행한
+        후 body의 자바스크립트가 실행.
+        */
+        document.write('head에서 실행');
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        document.write('body에서 실행');
+    </script>
+</body>
+</html>
