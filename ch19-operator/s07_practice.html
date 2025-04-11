@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+    [문제] 음식점에서 국수를 주문하는데 할인행사를 해서 한그릇에 20% 할인.
+        국수 값은 3,500원이고, 국수값과 주문할 수량을 입력해서 지불 금액을 출력력
+    [입력예시] prompt 사용 - 국수값 입력, 국수 수량 입력
+    [출력 예시]
+    지불 금액 : 14000원
+    */
+
+        var price = prompt('국수값 입력');
+        var num = prompt('국수 수량 입력');
+        
+        //  var res = price * num * 0.8; 로 해도 무방(곱이기때문)
+        var res = Number(price) * 0.8 * Number(num);
+
+        document.write('지불금액 : ' + res + '원');
+
+    </script>
+</body>
+</html>
