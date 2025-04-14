@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+    [문제] 0~100 사이로 점수를 입력하면 등급 출력
+    90~100 A, 80~89 B, 70~79 C, 60~69 D, 0~59 F
+    [입력예시] prompt로 입력 - 점수 입력
+    [출력예시]   점수 : 99
+                등급 : A
+    */
+        var score = prompt('점수 입력','');
+        var temp = Math.floor(Number(score)/10);
+        var grade;
+        if(score >= 0 && score <= 100){
+            switch(temp){
+                case 10: case 9:
+                    grade = 'A'
+                    break;
+                case 8:
+                    grade = 'B'
+                    break;
+                case 7:
+                    grade = 'C'
+                    break;
+                case 6:
+                    grade = 'D'
+                    break;
+                default :
+                    grade = 'F'
+            }
+        }else{
+            grade = '잘못된 입력입니다.'
+        }
+
+        document.write('점수 : ' + score +'<br>');
+        document.write('등급 : ' + grade +'<br>');
+    </script>
+</body>
+</html>
