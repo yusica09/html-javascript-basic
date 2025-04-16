@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나머지 매개변수</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        ES6에 새롭게 추가된 나머지 매개변수는 매개변수를 정의할 때 정해지지
+        않은 매개변수들을 정의할 수 있게함.
+        arguments 객체와 유사하나 arguments 객체는 함수에 전달되는 모든 전달
+        인자를 포함하는 반면에, 나머지 매개변수는 정해지지 않은 나머지를 의미함.
+        */
+
+        function test1(...args){
+            for (let i = 0; i < args.length; i++) {
+                document.write('args['+ i + '] : ' + args[i] + '<br>');
+                
+            }
+        };
+
+        test1(10,20,30);
+
+        document.write('-----------------------<br>');
+
+        function test2(a,b,...others){
+            document.write('a : ' + a + '<br>');
+            document.write('b : ' + b + '<br>');
+            //첫번째와 두번째 이외의 데이터는 전부 가변인자 배열에 저장
+            for (let i = 0; i < others.length; i++) {
+                document.write('args['+ i + '] : ' + others[i] + '<br>');
+                
+            }
+        };
+
+        test2(10,20,30,40,50);
+
+    </script>
+</body>
+</html>
