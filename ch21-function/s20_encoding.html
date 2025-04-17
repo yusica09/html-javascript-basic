@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인코딩, 디코딩</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        함수 이름                   설명
+        escape(url)         적절한 정도로 인코딩한다.
+        unescape(url)       적절한 정도로 디코딩한다.
+        encodeURI(url)      최소한의 문자만 인코딩한다.
+        decodeURI(url)      최소한의 문자만 디코딩한다.
+        encodeURIComponent(url) 대부분의 문자를 인코딩한다.
+        decodeURIComponent(url) 대부분의 문자를 디코딩한다.
+        */
+
+        // 인코딩할 URL을 지정
+        let url = 'https://www.naver.com? test=한글입니다.';
+
+        let output = '';
+        output += '*escape()<br>';
+        output += escape(url) + '<br><br>';
+        output += '*encodeURI()<br>';
+        output += encodeURI(url) + '<br><br>';
+        output += '*encodeURIComponent()<br>';
+        output += encodeURIComponent(url) + '<br><br>';
+
+        document.write(output);
+
+        // 디코딩
+        let urix = escape(url); //인코딩
+        document.write(unescape(urix));
+
+    </script>
+</body>
+</html>

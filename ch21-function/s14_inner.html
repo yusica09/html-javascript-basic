@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내부함수</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function f(){
+            let n = 123; //변수 선언 및 초기화
+            //내부 함수 정의
+            function g(){
+                document.write('n is ' + n + '<br>');
+                document.write('g is called');
+            }
+            g();
+        }
+
+        f();
+    </script>
+</body>
+</html>
