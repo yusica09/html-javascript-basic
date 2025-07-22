@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script에서 이벤트 연결</title>
+    <script type="text/javascript">
+        //이벤트 연결
+        //이벤트가 발생하면 이벤트 속성에 연결한 이벤트 핸들러가
+        //호출됨
+        //이벤트 속성 = 이벤트 핸들러(함수)
+        window.onload = function(){
+            alert('문서가 로드되었습니다.');
+            document.body.style.backgroundColor = 'yellow';
+            const notice = document.getElementById('notice');
+            notice.innerHTML = '날씨 맑음';
+        };
+    </script>
+</head>
+<body>
+    <div id="notice"></div>
+</body>
+</html>
