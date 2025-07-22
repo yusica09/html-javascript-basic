@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [실습] 가위바위보 게임
+        [입력 예시] prompt를 이용한 입력
+                    가위바위보 입력(0.가위 ,1.바위,2.보) : 1
+        [출력 예시]
+            -> 컴퓨터 : 가위, 사람 : 바위
+            결과 : 사람 승
+        */
+
+        const items = ['가위','바위','보'];
+
+        function resultMsg(com, user){
+            let comStr, userStr, winnerStr;
+            switch (com) {
+                    case 0: comStr = '컴퓨터 : 가위'; break;
+                    case 1: comStr = '컴퓨터 : 바위'; break;
+                    case 2: comStr = '컴퓨터 : 보'; break;
+                }
+            switch (user) {
+                    case 0: userStr = '사람 : 가위'; break;
+                    case 1: userStr = '사람 : 바위'; break;
+                    case 2: userStr = '사람 : 보'; break;
+                }
+
+            switch (user - com) {
+                    case 0: winnerStr = '결과 : 비겼습니다.'; break;
+                    case -1: winnerStr = '결과 : 컴퓨터 승'; break;
+                    case -2: winnerStr = '결과 : 사람 승'; break;
+                    case 1: winnerStr = '결과 : 사람 승'; break;
+                    case 2: winnerStr = '결과 : 컴퓨터 승'; break;
+                }
+
+            alert('-> '+ comStr + ', ' + userStr + '\n' + winnerStr);
+
+
+        }
+
+        while(true){
+            let menu = prompt('메뉴> 1.게임하기, 2.종료')
+
+            if(menu === '1'){
+                alert('게임하기를 선택하셨습니다.');
+                let user = Number(prompt('가위바위보 입력(0.가위, 1.바위, 2.보)'));
+                var com = Math.floor(3*Math.random());
+
+                if(isNaN(user) || user < 0 || user > 2){
+                    alert('잘못입력했습니다.');
+                    continue;
+                }
+
+                resultMsg(com,user);
+
+            }else if(menu === '2'){
+                document.write('종료합니다.');
+                break;
+            }
+        }
+
+        /*
+        const items = ['가위','바위','보'];
+                     //  0     1     2
+        while(true){
+            let menu = prompt('메뉴>1.게임하기,2.종료');
+            if(menu === '1'){//게임하기
+                let userChoice = 
+                    prompt('가위바위보 입력(0.가위,1.바위,2.보)','');
+                let user = Number(userChoice);
+
+                if(isNaN(user) || user < 0 || user > 2){
+                    alert('잘못 입력했습니다.');
+                    continue;
+                }
+                //0~2 난수 발생
+                let computer = Math.floor(Math.random()*3);
+
+                
+                컴퓨터 - 사용자 = 결과
+                0       0        0      무
+                0       1       -1      사용자 승
+                0       2       -2      컴퓨터 승
+                --------------------------------
+                1       0       1       컴퓨터 승
+                1       1       0       무
+                1       2       -1      사용자 승
+                --------------------------------
+                2       0       2       사용자 승
+                2       1       1       컴퓨터 승
+                2       2       0       무
+                
+            let result = computer - user;
+
+               let msg = '컴퓨터:' + items[computer] 
+                                    + ', 사람:' + items[user];
+               if(result === -1 || result === 2){
+                alert(msg + '\n결과: 사람 승!');
+               }else if(result === -2 || result === 1){
+                alert(msg + '\n결과: 컴퓨터 승!');
+               }else{
+                alert(msg + '\n결과: 무승부!');
+               }
+            }else if(menu === '2'){//종료
+                document.write('프로그램을 종료합니다.');
+                break;
+            }else{
+                alert('잘못 입력했습니다.');
+            }
+        }             
+        */
+    </script>
+</body>
+</html>

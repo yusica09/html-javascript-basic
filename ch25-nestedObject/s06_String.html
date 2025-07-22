@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String의 메서드 사용</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let msg = '세상의 끝에서 세상을 노래하다';
+
+        document.write(msg.length + '<br>');
+        document.write(msg.charAt(8) + '<br>');
+        document.write(msg.indexOf('상') + '<br>');
+        document.write(msg.indexOf('노래') + '<br>');
+        document.write(msg.indexOf('수') + '<br>');
+        document.write(msg.lastIndexOf('상') + '<br>');
+
+        // 지정한 인덱스부터 끝인덱스까지 추출
+        document.write(msg.substring(5) + '<br>');
+        // 지정한 인덱스부터 끝인덱스 전까지 추출
+        document.write(msg.substring(1,5) + '<br>');
+        document.write('-------------------------------<br>');
+
+
+        // 지정한 인덱스부터 끝인덱스까지 추출
+        document.write(msg.substr(5) + '<br>');
+        // 시작 인덱스, 추출할 문자 개수
+        document.write(msg.substr(5,2) + '<br>');
+        document.write('-------------------------------<br>');
+
+        // 지정한 인덱스부터 끝인덱스까지 추출
+        document.write(msg.slice(5) + '<br>');
+        document.write(msg.slice(1,5) + '<br>');
+        document.write('-------------<br>');
+
+        let msg2 = '2025-03-07';
+        // 구분자를 이용해서 문자열을 추출하고 배열로 반환
+        let array = msg2.split('-');
+
+        //배열의 요소 목록
+        document.write(array);
+
+    </script>
+</body>
+</html>
