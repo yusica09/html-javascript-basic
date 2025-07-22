@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>findIndex()</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const array = [10,20,30,40,50,60,70,80,90,100];
+
+        //조건에 만족하는 첫 번째 값의 인덱스 반환
+        let find1 = array.findIndex(function(element,index,array){
+                        // 80,90,100 중 첫번째 값의 인덱스 반환
+                        return element > 70;
+        });
+        document.write('find1 = '+find1+'<br>');
+
+        // 조건에 만족하는 첫번째 인덱스 반환
+        let find2 = array.findIndex(function(element,index,array){
+                        //6,7,8 중 첫번째 인덱스 반환
+                        return index > 5 && index < 9;
+        });
+        document.write('find2 = '+find2+'<br>');
+
+        const find3 = array.findIndex(
+            (element,index,array)=> element === 30);
+        document.write('find3 = '+find3+'<br>');
+
+        const find4 = array.findIndex(element => element > 90);
+        document.write('find4 = '+find4+'<br>');
+    </script>
+</body>
+</html>
