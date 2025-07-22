@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메서드 축약하기</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //ES6에서 추가된 기능 -> function 키워드를 생략한 축약표현
+
+        //객체 생성
+        const obj = {
+            name:'Lee',
+            //메서드 축약 표현
+            sayHi(){
+                document.write('Hi! ' + this.name);
+            }
+        };
+
+        //객체의 메서드 호출
+        obj.sayHi();
+    </script>
+</body>
+</html>

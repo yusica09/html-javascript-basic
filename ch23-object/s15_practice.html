@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>viewport</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [문제] 은행 계좌(Account) 생성
+            속성> 계좌번호, 예금주, 잔고
+            메서드> 입금(deposite), 출금(withdraw), 출력(toString => 계좌번호,예금주,잔고)
+
+            1) 계좌생성
+            2) 잔고확인
+            3) 입금
+            4) 잔고확인
+            5) 출금
+            6) 잔고확인
+
+        */
+
+        function Account(num,name,money){
+            this.num = num;
+            this.name = name;
+            this.money = money;
+
+            this.deposit = function(someMoney){
+                this.money += someMoney;
+            };
+
+            this.withdraw = function(someMoney){
+                this.money -= someMoney;
+            };
+
+            this.toString = function(){
+                return '계좌번호 : ' + this.num + ',' + '예금주 : ' + this.name + ',' 
+                            + '잔고 : ' + this.money;
+            };
+        };
+
+
+        var num = prompt('계좌번호 입력');
+        var name = prompt('예금주 입력');
+        var money = Number(prompt('잔고입력'));
+        const account = new Account(num,name,money);
+        console.log(account);
+
+        while (true) {
+            let select = prompt('메뉴> 1)입금 2)출금 3)잔고확인 4)종료');
+            if (select === '1') { //입금
+                account.deposit(Number(prompt('입금할 금액 입력')));
+            }else if (select === '2'){//출금
+                account.withdraw(Number(prompt('출금할 금액 입력')));
+            }else if (select === '3'){
+                alert(account);
+            }else if (select === '4'){
+                document.write('종료합니다.');
+                break;
+            }
+        }
+
+        /*
+        let number = prompt('계좌번호','');
+        let name = prompt('예금주','');
+        let balance = prompt('잔고','');
+
+        //계좌 생성
+        const myBank = new Account(
+                           number,name,Number(balance));
+        
+        while(true){
+            let menu = prompt(
+                  '메뉴>1.입금,2.출금,3.잔고 확인,4.종료');
+            if(menu === '1'){//입금
+                myBank.deposite(Number(prompt('입금액','')));
+            }else if(menu === '2'){//출금
+                myBank.widthraw(Number(prompt('출금액','')));
+            }else if(menu === '3'){//잔고 확인
+                alert(myBank);
+            }else if(menu === '4'){//종료
+                document.write('프로그램을 종료합니다.');
+                break;
+            }else{
+                alert('잘못 입력했습니다.');
+            }
+
+        }                   
+
+
+        function Account(number,name,balance){
+            this.number = number;
+            this.name = name;
+            this.balance = balance;
+
+            //입금
+            this.deposite = function(money){
+                this.balance += money;
+            };
+            //출금
+            this.widthraw = function(money){
+                this.balance -= money;
+            };
+            //잔고 확인
+            this.toString = function(){
+                return this.number + ', ' + this.name + ', '
+                        + this.balance;
+            };
+        }
+        */
+
+    </script>
+</body>
+</html>

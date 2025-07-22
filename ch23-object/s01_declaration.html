@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //객체 생성
+        const product = {
+            // 속성(key(property 프로퍼티):value)
+            제품명:'휴대폰',
+            제품번호:'A1001',
+            기능:'멀티윈도우',
+            원산지:'대한민국',
+            가격:1000, //일반적으로 숫자의 경우는 숫자로 명시함
+            업데이트지원:true, //마지막 쉼표는 무시됨
+        };
+
+        // 객체의 속성 호출
+        document.write(product.제품명);
+        document.write('<br>');
+        document.write(product.업데이트지원);
+        document.write('<br>------------------------<br>');
+
+        document.write(product['원산지']);
+        document.write('<br>');
+        document.write(product['가격']);
+        
+    </script>
+</body>
+</html>

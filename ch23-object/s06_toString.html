@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toString()</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //객체생성
+        const student = {};
+
+        document.write(student);
+        document.write('<br>');
+        document.write(student.toString() + '<br>');
+        document.write('------------------------------<br>');
+
+        //객체에 속성 추가
+        student.이름 = '홍길동';
+        student.취미 = '악기';
+        student.특기 = '프로그래밍';
+        student.장래희망 = '프로그래머';
+
+        //객체에 메서드 추가
+        student.toString = function(){
+            let msg = '';
+            //객체명보단 this로 쓰는게 좋음. 객체명이 바뀔수도 있기 때문
+            for(let key in this){
+                if(key != 'toString'){
+                    msg += key + ':' + this[key] + '<br>';
+                }
+            }
+            return msg;
+        };
+
+        document.write(student.toString() + '<br>');
+        document.write('------------------------------<br>');
+        document.write(student);
+        document.write('------------------------------<br>');
+
+        //속성 제거 - 2가지 방법
+        //delete student.취미;
+        delete(student.취미);
+
+        document.write(student);
+
+    </script>
+</body>
+</html>
