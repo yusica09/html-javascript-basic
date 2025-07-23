@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캔버스 연습</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            const canvas = document.getElementById('canvas');
+            if(canvas.getContext){
+                const context = canvas.getContext('2d');
+                
+                //quadraticCurveTo(cplx, cply, x, y) : 한개의 조절점
+                //즉, (cplx,cply)를 이용해 (x,y)까지 곡선을 그림
+                context.beginPath();
+                //시작점을 (50,200)으로 옮김
+                context.moveTo(50,200);
+                //(200,50)을 조절점으로하여 현재 위치에서 (350,200)까지 곡선을 그림
+                context.quadraticCurveTo(200,50,350,200);
+
+                context.stroke();
+                
+            }else{
+                alert('브라우저가 캔버스를 지원하지 않습니다.')
+            }
+        };
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="220"></canvas>
+    <br><br>
+    <img src="../files/exp_01.gif">
+</body>
+</html>

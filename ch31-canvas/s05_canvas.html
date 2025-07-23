@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캔버스 연습</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            const canvas = document.getElementById('canvas');
+            if(canvas.getContext){
+                const context = canvas.getContext('2d');
+
+                /*
+                arc메서드에서의 각도는 도(degree)로 표시하지 않음.
+                라디안 값으로 표기함
+
+                1라디안은 180/(Math.PI)
+                60도 -> (Math.PI/180) * 60, 360도 -> (Math.PI) * 2
+
+                        1.5 파이(270도)
+                            |
+                            |
+                            |
+        1파이(180도)------중심점------- 0파이, 2파이(0도,360도)
+                            |
+                            |
+                            |
+                        0.5 파이(90도)
+        x,y위치에서 시작해서 반시계방향(anticlockwise)으로
+        반지름(r)만큼의 원을 그림
+        startAngle과 endAngle 매개변수는 호의 시작점과 끝점을 의미
+                */
+                
+                // (70,70)에서 반시계방향으로 반지름 20px인
+                // 원을 그리는데, 60도까지만 그리고 테두리만 표시
+
+                context.beginPath();
+                //시작점(x,y) 반지름 startAngle endAngle 반시계방향여부
+                context.arc(70,70,20,0,(Math.PI/180)*60,true);
+
+                context.stroke();
+
+                //(130,110)에서 반시계방향으로 반지름 50인 원을 그리고, 색 채우기
+                // 끝각도를 360도 = 2라디안
+                context.beginPath();
+                context.arc(130,110,50,0,2*Math.PI,true);
+                context.closePath(); //360도 이기때문에 생략가능
+
+                context.fillStyle = 'rgb(0,200,200)';
+                context.fill();
+                context.stroke();
+
+                //(190,70)에서 반시계방향으로 반지름 20인 원을 그리고,
+                // 110도에서 170도까지만 그리고, 테두리를 표시
+                context.beginPath();
+                context.arc(190,70,20,(Math.PI/180)*110,(Math.PI/180)*170,true);
+                context.stroke();
+                
+            }else{
+                alert('브라우저가 캔버스를 지원하지 않습니다.')
+            }
+        };
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="700" height="500"></canvas>
+</body>
+</html>

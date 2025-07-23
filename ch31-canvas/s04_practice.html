@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+    </script>
+
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        a{text-decoration: none;}
+        ul{list-style:none;}
+        #main_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .title sup{
+            color: #505050;
+            font-weight: lighter;
+            font-size: 0.5em;
+        }
+        .search-bar {
+            flex: 2; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-bar form {
+            display: flex;
+            align-items: center;
+            border: 2px solid #d8dadb;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 80%;
+        }
+        .input-search {
+            border: none;
+            padding: 8px 8px;
+            outline: none; /* 클릭 시 테두리 제거 */
+            flex: 1; /* 남은 공간 차지 */
+        }
+        .input-search-submit {
+            border: none;
+            background-color: #d8dadb; /* 버튼 배경색 */
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .input-search-submit:hover {
+            background-color: #a2a8ac; /* 어두운 파란색 */
+        }
+        .hgroup {
+            flex: 1;
+            text-align: left;
+        }
+        .login{
+            float:center;
+            position: relative;
+            padding: 5px 11px;
+            margin: 5px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border: 2px solid #c7cfd4;
+        }
+        .login:hover{
+            background-color: #cee7f8;
+        }
+        .menu-title{
+            display: block;
+            height:20px;
+            line-height: 20px;
+            text-align: center;
+            padding:5px 6px;
+        }
+        #main_nav{
+            width: 100%;
+            padding: 10px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .outer-menu {
+            display: flex; 
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+            scrollbar-width: none;
+            overflow-x: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .outer-menu-item{
+            background-color: #eaeef1;
+            padding: 2px 3px;
+            margin: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            white-space: nowrap;
+
+        }
+        .outer-menu-item:hover{
+            background:#000;
+            color:#FFF;
+        }
+        #login_font{
+            flex: 0 0 auto;
+            font-size: 14px;
+            color: #3498db;
+            text-align: center;
+        }
+        #face_icon{
+            border-radius: 20px;
+            border: 2px solid #3498db;
+        }
+        #main_title{
+            float:center;
+            position: relative;
+            padding: 5px 11px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .profile-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .text-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .video_name {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            /*text-overflow: ellipsis;*/
+            /*max-width: 50%;*/
+        }
+        .channel-name {
+            font-size: 12px;
+            color: gray;
+            margin: 0;
+        }
+        .views {
+            font-size: 12px;
+            color: gray;
+            margin: 0;
+        }
+        .video-box {
+            /*width: 350px;*/
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 300px;
+        }
+        .thumbnail {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .thumbnail:hover {
+            transform: scale(1.2); /* 1.2배 확대 */
+        }
+        .video-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%; 
+        }
+        .video {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 300px;
+            gap: 20px;
+            /*width: 100%;*/
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+        .video {
+            grid-template-columns: repeat(1, 1fr); /* 작은 화면에서는 1열 */
+            }
+        }
+
+        @media (min-width: 1024px) {
+        .video {
+            grid-template-columns: repeat(3, 1fr); /* 큰 화면에서는 3열 */
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header id="main_header">
+        <div id="main_title">
+            <img id="main_icon" src="../files/youtubelogo.png" width="30">
+            <h1 class="title">YouTube<sup>KR</sup></h1>
+        </div>
+        
+        <div class="search-bar">
+            <form>
+                <input type="search" class="input-search" placeholder="검색" >
+                <input type="submit" class="input-search-submit" value="검색">
+            </form>
+        </div>
+        <div class="login">
+            <img id="face_icon" src="../files/face.png" width="20">
+            <span id="login_font">로그인</span>
+        </div>
+    </header>
+
+    <nav id="main_nav">
+        <div class="pull-left">
+            <ul class="outer-menu">
+                <li class="outer-menu-item">
+                    <span class="menu-title">전체</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">게임</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">뉴스</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">음악</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">분장</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">믹스</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">라이브</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">야구</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">애니메이션</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">액션 어드벤처 게임</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">시트콤</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">팟캐스트</span>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">요리</span>
+                </li>
+            </ul> 
+        </div>
+    </nav>
+
+    <div class="video"> <!--영상 전체-->
+        <div class="video-box">
+            <img src="../files/picture1.png" class="thumbnail">
+            <div class="video-info">
+                <img src="../files/face.png" alt="채널 프로필" class="profile-img">
+                <div class="text-info">
+                    <p class="video_name">눈 떠보니 살아있는 채로 관 속에 묻혀있었다..</p>
+                    <p class="channel-name">혜안</p>
+                    <p class="views">조회수 246만회 · 1년 전</p>
+                </div>
+            </div>
+        </div>
+        <div class="video-box">
+            <img src="../files/picture2.png" class="thumbnail">
+            <div class="video-info">
+                <img src="../files/face.png" alt="채널 프로필" class="profile-img">
+                <div class="text-info">
+                    <p class="video_name">웃음참기15</p>
+                    <p class="channel-name">우주하마</p>
+                    <p class="views">조회수 39만회 · 8일 전</p>
+                </div>
+            </div>
+        </div>
+        <div class="video-box">
+            <img src="../files/picture3.png" class="thumbnail">
+            <div class="video-info">
+                <img src="../files/face.png" alt="채널 프로필" class="profile-img">
+                <div class="text-info">
+                    <p class="video_name">전설의 '지존라이더1'를 아시나요?</p>
+                    <p class="channel-name">T1</p>
+                    <p class="views">조회수 31만회 · 6일 전</p>
+                </div>
+            </div>
+        </div>
+        <div class="video-box">
+            <img src="../files/picture4.png" class="thumbnail">
+            <div class="video-info">
+                <img src="../files/face.png" alt="채널 프로필" class="profile-img">
+                <div class="text-info">
+                    <p class="video_name">얼굴 좀 빨개진다고 안 죽어 인마</p>
+                    <p class="channel-name">너덜트</p>
+                    <p class="views">조회수 125만회 · 3주 전</p>
+                </div>
+            </div>
+        </div>
+        <div class="video-box">
+            <img src="../files/picture5.png" class="thumbnail">
+            <div class="video-info">
+                <img src="../files/face.png" alt="채널 프로필" class="profile-img">
+                <div class="text-info">
+                    <p class="video_name">[SUB] 아이유 아이유하는 이유 | EP.81 아이유 | 살롱드립2</p>
+                    <p class="channel-name">TEO 테오</p>
+                    <p class="views">조회수 110만회 · 23시간 전</p>
+                </div>
+            </div>
+        </div>
+        <div class="video-box">
+            <img src="../files/picture6.png" class="thumbnail">
+            <div class="video-info">
+                <img src="../files/face.png" alt="채널 프로필" class="profile-img">
+                <div class="text-info">
+                    <p class="video_name">군대리아</p>
+                    <p class="channel-name">숏박스</p>
+                    <p class="views">조회수 357만회 · 4일 전</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
