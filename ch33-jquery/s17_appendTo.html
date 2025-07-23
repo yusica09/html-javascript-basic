@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 객체 생성</title>
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        //문서가 준비 완료되면 매개변수로 전달된 함수를 실행
+        $(function(){
+
+            $('<img>').attr({
+                src:'../files/landscape.jpg',
+                width : 400,
+                height: 250 }).appendTo('body');
+
+        });
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

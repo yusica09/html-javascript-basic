@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Sunflower:300);
+        body{
+            font-family: 'Sunflower' , sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        table{
+            width: 700px;
+            margin: 0 auto;
+        }
+        .results{
+            text-align: center;
+            font-weight: bold;
+            font-size: 2.5em;
+            vertical-align: top;
+        }
+        .result{
+            text-align: center;
+            font-weight: bold;
+            font-size: 2.5em;
+            color: red;
+        }
+        .results-img{
+            padding: 100px;
+            text-align: center;
+        }
+        .user_option{
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.user_option').click(function(){
+                let user = $(this).attr('id').substr(3);
+                $('#user_str').html(select_str(user));
+                $('#user_img').attr('src',$(this).attr('src'));
+                $('#user_img').show();
+
+                const com = Math.floor(3*Math.random());
+                $('#com_str').html(select_str(com));
+                $('#com_img').attr('src','../files/timg'+com+'.png');
+                $('#com_img').show();
+
+                const result = winner(com,user);
+                $('#com_result').html(com_result_str(result));
+                $('#user_result').html(user_result_str(result));
+            });
+
+        });
+
+        function winner(com, user){
+            switch (user - com) {
+                    case 0: return 0;//비겼습니다
+                    case -1: return 1;//컴퓨터 승
+                    case -2: return 2;//사람 승
+                    case 1: return 2; //사람 승
+                    case 2: return 1;//컴퓨터 승
+                }
+        }
+
+        function com_result_str(result){
+            if(result==0) return '무승부'
+            else if(result==1) return '승'
+            else if(result==2) return '패'
+        }
+
+        function user_result_str(result){
+            if(result==0) return '무승부'
+            else if(result==1) return '패'
+            else if(result==2) return '승'
+        }
+
+        function select_str(num){
+            if(num=='0') return '가위'
+            else if(num=='1') return '바위'
+            else if(num=='2') return '보'
+        }
+    </script>
+
+</head>
+<body>
+    <h1>가위바위보 게임</h1>
+    <table>
+        <tr height="100">
+            <td class="results" width="315">
+                컴퓨터 <span class="result-letter"></span></td>
+            <td class="results" width="315">
+                사용자 <span class="result-letter"></span>
+                <div>
+                    <img class="user_option" id="img0"
+                        src="../files/timg0.png" width="90">
+                    <img class="user_option" id="img1"
+                        src="../files/timg1.png" width="90">
+                    <img class="user_option" id="img2"
+                        src="../files/timg2.png" width="90">
+                </div>
+            </td>    
+        </tr>
+        <tr height="150">
+            <td class="result-img"><span id="com_str"></span><img id="com_img" style="display: none;"> </td>
+            <td class="result-img"><span id="user_str"></span><img id="user_img" style="display: none;"> </td>
+        </tr>
+        <tr>
+            <td class="result"><span id="com_result"></span></td>
+            <td class="result"><span id="user_result"></span></td>
+        </tr>
+    </table>
+</body>
+</html>
